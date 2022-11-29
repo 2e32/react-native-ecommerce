@@ -1,3 +1,5 @@
+import keys from './keys';
+
 const user = {
   firstName: 'Kristin',
   lastName: 'Watson',
@@ -5,6 +7,33 @@ const user = {
   avatar: 'https://www.allaccess.com/assets/img/editorial/raw/ki/kirstenwatson2021.jpg',
 };
 
-const mocks = { user };
+const orders = [
+  {
+    id: 1,
+    number: 238562312,
+    date: '20/03/2020',
+    quantity: 3,
+    total: 150,
+    status: { id: 3, key: keys.orderStatus.CANCELED, title: 'Canceled' },
+  },
+  {
+    id: 2,
+    number: 238562313,
+    date: '17/05/2020',
+    quantity: 2,
+    total: 30,
+    status: { id: 2, key: keys.orderStatus.DELIVERED, title: 'Delivered' },
+  },
+  {
+    id: 3,
+    number: 238562314,
+    date: '09/11/2022',
+    quantity: 5,
+    total: 1230,
+    status: { id: 1, key: keys.orderStatus.PROCESSING, title: 'Processing' },
+  },
+];
+
+const mocks = { user, orders };
 
 export default mocks;
