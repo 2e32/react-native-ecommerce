@@ -2,8 +2,7 @@ import { StyleSheet, View, Text, Button, Alert } from 'react-native';
 
 import { colors } from '../../constants';
 
-import Devider from '../Devider';
-
+import Card from './Card';
 import Status from './Status';
 
 const defaultRowStyle = {
@@ -22,15 +21,7 @@ function CardRow({ children, style, ...rest }) {
   );
 }
 
-function Header({ children }) {
-  return <View style={styles.header}>{children}</View>;
-}
-
-function Body({ children }) {
-  return <View style={styles.body}>{children}</View>;
-}
-
-function HeaderInfo({ number, date }) {
+function HeaderContent({ number, date }) {
   return (
     <CardRow>
       <Text style={styles.orderNumber}>Order No{number}</Text>
@@ -38,7 +29,7 @@ function HeaderInfo({ number, date }) {
     </CardRow>
   );
 }
-function BodyInfo({ quantity, total, status }) {
+function BodyContent({ quantity, total, status }) {
   return (
     <View>
       <CardRow style={{ marginBottom: 10 }}>
@@ -65,34 +56,17 @@ function BodyInfo({ quantity, total, status }) {
 
 export default function OrderCard({ order }) {
   return (
-    <View style={styles.container}>
-      <Header>
-        <HeaderInfo number={order?.number} date={order?.date} />
-      </Header>
-      <Devider />
-      <Body>
-        <BodyInfo quantity={order?.quantity} total={order?.total} status={order?.status} />
-      </Body>
-    </View>
+    <Card
+      headerContent={<HeaderContent number={order?.number} date={order?.date} />}
+      bodyContent={
+        <BodyContent quantity={order?.quantity} total={order?.total} status={order?.status} />
+      }
+    />
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginHorizontal: 10,
-    marginVertical: 10,
-
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: '#000',
-    borderRadius: 8,
-  },
-  header: {
-    paddingTop: 16,
-    paddingBottom: 12,
-    paddingHorizontal: 16,
-  },
-  headerInfo: {
+  headerContent: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -107,11 +81,6 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 
-  body: {
-    paddingTop: 12,
-    paddingBottom: 16,
-    paddingHorizontal: 16,
-  },
   paramName: {
     color: colors.sub,
     fontSize: 16,
