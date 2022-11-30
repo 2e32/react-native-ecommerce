@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Button, Alert } from 'react-native';
 import { colors } from '../../constants';
 
 import Status from './Status';
+import { Quantity, TotalAmount } from './pairs';
 
 const defaultRowStyle = {
   flexDirection: 'row',
@@ -23,8 +24,8 @@ function CardRow({ children, style, ...rest }) {
 export function HeaderContent({ number, date }) {
   return (
     <CardRow>
-      <Text style={styles.orderNumber}>Order No{number}</Text>
-      <Text style={styles.orderDate}>{date}</Text>
+      <Text style={styles.title}>Order No{number}</Text>
+      <Text style={styles.subtitle}>{date}</Text>
     </CardRow>
   );
 }
@@ -33,14 +34,8 @@ export function BodyContent({ quantity, total, status }) {
   return (
     <>
       <CardRow>
-        <Text>
-          <Text style={styles.paramName}>Quantity: </Text>
-          <Text style={styles.paramValue}>{quantity}</Text>
-        </Text>
-        <Text>
-          <Text style={styles.paramName}>Total Amount: </Text>
-          <Text style={styles.paramValue}>${total}</Text>
-        </Text>
+        <Quantity value={quantity} />
+        <TotalAmount value={total} />
       </CardRow>
       <CardRow style={{ marginTop: 32 }}>
         <Button
@@ -55,26 +50,14 @@ export function BodyContent({ quantity, total, status }) {
 }
 
 const styles = StyleSheet.create({
-  orderNumber: {
+  title: {
     color: colors.main,
     fontSize: 16,
     lineHeight: 24,
   },
-  orderDate: {
+  subtitle: {
     color: colors.sub,
     fontSize: 14,
     lineHeight: 20,
-  },
-
-  paramName: {
-    color: colors.sub,
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  paramValue: {
-    color: colors.main,
-    fontSize: 16,
-    fontWeight: '600',
-    lineHeight: 24,
   },
 });
