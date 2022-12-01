@@ -11,7 +11,7 @@ export default function SwitchWithLabel({ value, label, ...rest }) {
         thumbColor={styles.switch.thumbColor}
         {...rest}
       />
-      <Text style={styles.label}>Use as the shipping address</Text>
+      <Text style={[styles.label, !value && styles.labelMuted]}>Use as the shipping address</Text>
     </View>
   );
 }
@@ -34,5 +34,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '400',
     lineHeight: 24,
+  },
+  labelMuted: {
+    color: colors.sub,
   },
 });
