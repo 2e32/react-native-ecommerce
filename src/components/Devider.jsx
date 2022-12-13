@@ -2,12 +2,14 @@ import { View } from 'react-native';
 
 import { colors } from '../constants';
 
-const styles = {
+const defaultStyle = {
   borderBottomWidth: 1,
   borderStyle: 'solid',
   borderBottomColor: colors.secondary,
 };
 
-export default function Devider() {
-  return <View style={styles} />;
+export default function Devider({ style, ...rest }) {
+  const styles = Object.assign({}, defaultStyle, style);
+
+  return <View style={styles} {...rest} />;
 }

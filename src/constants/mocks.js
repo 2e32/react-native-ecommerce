@@ -34,6 +34,27 @@ const orders = [
   },
 ];
 
-const mocks = { user, orders };
+const shippingAddresses = [
+  {
+    id: 1,
+    active: true,
+    recipient: 'Bruno Fernandes',
+    fullAddress: '25 rue Robert Latouche, Nice, 06200, Côte D’azur, France',
+  },
+  {
+    id: 2,
+    active: false,
+    recipient: 'Bruno Fernandes',
+    fullAddress: '25 rue Robert Latouche, Nice, 06200, Côte D’azur, France',
+  },
+  {
+    id: 3,
+    active: false,
+    recipient: 'Bruno Fernandes',
+    fullAddress: '25 rue Robert Latouche, Nice, 06200, Côte D’azur, France',
+  },
+];
+
+const mocks = { user, orders, shippingAddresses };
 
 export default mocks;
