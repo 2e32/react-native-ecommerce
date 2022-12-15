@@ -11,7 +11,7 @@ export default function SwitchWithLabel({ value, label, ...rest }) {
         thumbColor={styles.switch.thumbColor}
         {...rest}
       />
-      <Text style={[styles.label, !value && styles.labelMuted]}>Use as the shipping address</Text>
+      <Text style={[styles.label, !value && styles.labelMuted]}>{label}</Text>
     </View>
   );
 }

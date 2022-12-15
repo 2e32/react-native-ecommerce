@@ -13,12 +13,12 @@ export default function PaymentMethodCard({ active, ...rest }) {
 
   return (
     <View style={container}>
+      <CreditCard active={active} {...rest} />
       <SwitchWithLabel
         value={isEnabled}
         label="Use as default payment method"
         onValueChange={toggleSwitch}
       />
-      <CreditCard active={active} {...rest} />
     </View>
   );
 }
