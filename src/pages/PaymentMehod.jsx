@@ -12,7 +12,7 @@ export default function PaymentMehod() {
       <PageHeader>Payment mehod</PageHeader>
       <ScrollView>
         {Array.isArray(mocks.paymentCards) &&
-          mocks.paymentCards.map((card, index) => <PaymentMethodCard key={index} {...card} />)}
+          mocks.paymentCards.map((card) => <PaymentMethodCard key={card.id} {...card} />)}
       </ScrollView>
       <AddFab onPress={handleAdd} />
     </View>

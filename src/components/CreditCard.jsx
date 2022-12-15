@@ -2,6 +2,18 @@ import { StyleSheet, View, Text } from 'react-native';
 
 import { colors } from '../constants';
 
+const formatExpity = (date) => {
+  if (!date) return null;
+
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  const formattedMonth = String(month).padStart(2, '0');
+  const formattedYear = String(year).slice(-2);
+
+  return `${formattedMonth}/${formattedYear}`;
+};
+
 function CardRow({ children }) {
   return <View style={styles.row}>{children}</View>;
 }
@@ -16,15 +28,15 @@ function CardField({ label, value }) {
 }
 
 export default function CreditCard(props) {
-  const { number, issuingNetwork, cardHolder, expity, active } = props;
-
+  const { number, issuingNetwork, cardHolder, expiry, active } = props;
+  console.log('expity', expiry);
   return (
     <View style={[styles.container, active && styles.active]}>
       <Text style={styles.logo}>{issuingNetwork}</Text>
       <Text style={styles.number}>{number}</Text>
       <CardRow>
         <CardField label="Card Holder Name" value={cardHolder} />
-        <CardField label="Expity Date" value={1} />
+        <CardField label="Expiry Date" value={formatExpity(expiry)} />
       </CardRow>
     </View>
   );
