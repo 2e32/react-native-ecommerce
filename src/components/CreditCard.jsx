@@ -29,7 +29,7 @@ function CardField({ label, value }) {
 
 export default function CreditCard(props) {
   const { number, issuingNetwork, cardHolder, expiry, active } = props;
-  console.log('expity', expiry);
+
   return (
     <View style={[styles.container, active && styles.active]}>
       <Text style={styles.logo}>{issuingNetwork}</Text>
