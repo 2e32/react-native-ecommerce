@@ -55,6 +55,25 @@ const shippingAddresses = [
   },
 ];
 
-const mocks = { user, orders, shippingAddresses };
+const paymentCards = [
+  {
+    id: 1,
+    issuingNetwork: 'VISA',
+    number: '1111-1111-1111-1234',
+    cardHolder: 'Jennyfer Doe',
+    expiry: new Date(2023, 5, 1),
+    active: true,
+  },
+  {
+    id: 2,
+    issuingNetwork: 'MasterCard',
+    number: '2222-2222-2222-6789',
+    cardHolder: 'Jennyfer Doe',
+    expiry: new Date(2023, 1, 1),
+    active: false,
+  },
+];
+
+const mocks = { user, orders, shippingAddresses, paymentCards };
 
 export default mocks;
