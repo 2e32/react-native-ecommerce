@@ -1,17 +1,42 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { routes } from '../../constants';
+import { routes, colors } from '../../constants';
+
+import * as icons from '../../assets/icons/svg/furniture';
 
 import * as Tabs from './tabs';
 
 const Tab = createBottomTabNavigator();
 
-const screenOptions = () => ({
+const getIconByRoute = (routeName) => {
+  let icon;
+
+  if (routeName === routes.home.POPULAR) {
+    icon = icons.ChairSvgIcon;
+  } else if (routeName === routes.home.CHAIR) {
+    icon = icons.ChairSvgIcon;
+  } else if (routeName === routes.home.TABLE) {
+    icon = icons.TableSvgIcon;
+  } else if (routeName === routes.home.ARMCHAIR) {
+    icon = icons.ArmchairSvgIcon;
+  } else if (routeName === routes.home.BED) {
+    icon = icons.BedSvgIcon;
+  }
+
+  return icon;
+};
+
+const screenOptions = ({ route }) => ({
   headerShown: false,
   tabBarStyle: {
     height: 75,
     position: 'absolute',
     top: 0,
+  },
+  tabBarIcon: ({ focused }) => {
+    const IconSvg = getIconByRoute(route.name);
+
+    return <IconSvg width={32} height={32} fill={focused ? colors.main : colors.sub} />;
   },
 });
 
