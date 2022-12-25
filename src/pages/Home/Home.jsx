@@ -1,9 +1,5 @@
-import { View, Text } from 'react-native';
+import HomeNavigator from './HomeNavigator';
 
 export default function Home() {
-  return (
-    <View>
-      <Text>Home page</Text>
-    </View>
-  );
+  return <HomeNavigator />;
 }
