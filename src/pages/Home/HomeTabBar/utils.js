@@ -1,6 +1,6 @@
 import { routes } from '../../../constants';
 
-import * as icons from '../../../assets/icons/svg/furniture';
+import icons from '../../../assets/icons/svg';
 
 export const getLabel = (tabBarLabel, title, routeName) => {
   if (tabBarLabel != null) return tabBarLabel;
@@ -13,15 +13,15 @@ export const getIcon = (routeName) => {
   let icon;
 
   if (routeName === routes.home.POPULAR) {
-    icon = icons.ChairSvgIcon;
+    icon = icons.shape.StarSvgIcon;
   } else if (routeName === routes.home.CHAIR) {
-    icon = icons.ChairSvgIcon;
+    icon = icons.furniture.ChairSvgIcon;
   } else if (routeName === routes.home.TABLE) {
-    icon = icons.TableSvgIcon;
+    icon = icons.furniture.TableSvgIcon;
   } else if (routeName === routes.home.ARMCHAIR) {
-    icon = icons.ArmchairSvgIcon;
+    icon = icons.furniture.ArmchairSvgIcon;
   } else if (routeName === routes.home.BED) {
-    icon = icons.BedSvgIcon;
+    icon = icons.furniture.BedSvgIcon;
   }
 
   return icon;
