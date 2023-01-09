@@ -2,9 +2,9 @@ import { StyleSheet, Text } from 'react-native';
 
 import { colors } from '../../../constants';
 
-export default function Label({ children, ...rest }) {
+export default function Label({ children, disabled = false, ...rest }) {
   return (
-    <Text style={styles.label} {...rest}>
+    <Text style={[styles.label, disabled && styles.labelDisabled]} {...rest}>
       {children}
     </Text>
   );
@@ -17,5 +17,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '400',
     lineHeight: 24,
+  },
+  labelDisabled: {
+    color: colors.sub,
   },
 });

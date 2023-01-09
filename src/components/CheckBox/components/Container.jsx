@@ -1,8 +1,8 @@
 import { StyleSheet, Pressable } from 'react-native';
 
-export default function Container({ children, ...rest }) {
+export default function Container({ children, disabled = false, ...rest }) {
   return (
-    <Pressable style={styles.container} {...rest}>
+    <Pressable disabled={disabled} style={styles.container} {...rest}>
       {children}
     </Pressable>
   );
