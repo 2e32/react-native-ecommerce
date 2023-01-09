@@ -5,6 +5,10 @@ import { TabBar, PopularTab, DefaultTab } from './components';
 import { getLabel, getIcon, getIsFocused } from './utils';
 
 export default function HomeTabBar({ state, descriptors, navigation }) {
+  const focusedRoute = state.routes[state.index];
+  const focusedDescriptor = descriptors[focusedRoute.key];
+  const focusedOptions = focusedDescriptor.options;
+
   const renderedTabs = state.routes.map((route, index) => {
     const { options } = descriptors[route.key];
 
@@ -32,5 +36,5 @@ export default function HomeTabBar({ state, descriptors, navigation }) {
     );
   });
 
-  return <TabBar>{renderedTabs}</TabBar>;
+  return <TabBar style={focusedOptions.tabBarStyle}>{renderedTabs}</TabBar>;
 }

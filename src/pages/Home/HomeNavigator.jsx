@@ -7,8 +7,11 @@ import * as Tabs from './tabs';
 
 const Tab = createBottomTabNavigator();
 
+const DEFAULT_TABBAR_HEIGHT = 75;
+const screenOptions = { headerShown: false, tabBarStyle: { height: DEFAULT_TABBAR_HEIGHT } };
+const sceneContainerStyle = { marginTop: DEFAULT_TABBAR_HEIGHT };
+
 const renderTabBar = (props) => <HomeTabBar {...props} />;
-const screenOptions = { headerShown: false };
 
 export default function HomeNavigator() {
   return (
@@ -16,6 +19,7 @@ export default function HomeNavigator() {
       initialRouteName={routes.home.POPULAR}
       tabBar={renderTabBar}
       screenOptions={screenOptions}
+      sceneContainerStyle={sceneContainerStyle}
     >
       <Tab.Screen name={routes.home.POPULAR} component={Tabs.Popular} />
       <Tab.Screen name={routes.home.CHAIR} component={Tabs.Chair} />

@@ -11,6 +11,7 @@ export default function TabItem({ children, style, ...rest }) {
 const styles = StyleSheet.create({
   tabItem: {
     alignItems: 'center',
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 5,
   },

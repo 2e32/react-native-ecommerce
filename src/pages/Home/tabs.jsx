@@ -1,14 +1,7 @@
 import { View, ScrollView, Text } from 'react-native';
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 function TabContainer({ children }) {
-  const tabBarHeight = useBottomTabBarHeight();
-
-  return (
-    <View style={{ marginTop: tabBarHeight }}>
-      <ScrollView>{children}</ScrollView>
-    </View>
-  );
+  return <ScrollView>{children}</ScrollView>;
 }
 
 export function Popular() {
