@@ -8,7 +8,7 @@ const defaultStyle = {
   borderBottomColor: colors.secondary,
 };
 
-export default function Devider({ style, ...rest }) {
+export default function Divider({ style, ...rest }) {
   const styles = Object.assign({}, defaultStyle, style);
 
   return <View style={styles} {...rest} />;
