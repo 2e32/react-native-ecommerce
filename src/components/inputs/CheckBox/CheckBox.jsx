@@ -1,6 +1,6 @@
 import { Container, Box, Label } from './components';
 
-export default function CheckBox(props) {
+export default function Checkbox(props) {
   const {
     checked = false,
     label,
