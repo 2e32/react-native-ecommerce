@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 
-import Devider from '../Devider';
+import Divider from '../Divider';
 
 function Container({ children }) {
   return <View style={styles.container}>{children}</View>;
@@ -18,7 +18,7 @@ export default function Card({ headerContent, bodyContent }) {
   return (
     <Container>
       <Header>{headerContent}</Header>
-      <Devider />
+      <Divider />
       <Body>{bodyContent}</Body>
     </Container>
   );

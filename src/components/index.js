@@ -1,6 +1,6 @@
 export { default as AddFab } from './AddFab';
 export { default as CreditCard } from './CreditCard';
-export { default as Devider } from './Devider';
+export { default as Divider } from './Divider';
 export { default as Fab } from './Fab';
 export { default as OrderCard } from './OrderCard';
 export { default as PageHeader } from './PageHeader';

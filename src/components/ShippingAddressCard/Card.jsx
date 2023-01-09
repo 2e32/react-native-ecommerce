@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text } from 'react-native';
 import { colors } from '../../constants';
 
-import Devider from '../Devider';
+import Divider from '../Divider';
 
 function Container({ children }) {
   return <View style={styles.container}>{children}</View>;
@@ -19,7 +19,7 @@ export default function Card({ title, description }) {
   return (
     <Container>
       <Title>{title}</Title>
-      <Devider style={styles.devider} />
+      <Divider style={styles.Divider} />
       <Description>{description}</Description>
     </Container>
   );
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     borderColor: '#000',
     borderRadius: 8,
   },
-  devider: {
+  Divider: {
     marginVertical: 12,
   },
   title: {
