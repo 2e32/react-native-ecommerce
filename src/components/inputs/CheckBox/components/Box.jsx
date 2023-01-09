@@ -1,8 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 
-import { colors } from '../../../constants';
+import { colors } from '../../../../constants';
 
-import icons from '../../../assets/icons/svg';
+import icons from '../../../../assets/icons/svg';
 
 const { CheckSvgIcon } = icons.shape;
 

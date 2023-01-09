@@ -1,6 +1,6 @@
 import { StyleSheet, Text } from 'react-native';
 
-import { colors } from '../../../constants';
+import { colors } from '../../../../constants';
 
 export default function Label(props) {
   const { children, disabled = false, style, ...rest } = props;
