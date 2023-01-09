@@ -13,10 +13,12 @@ const getBoxStyle = (checked, disabled) => {
   return null;
 };
 
-export default function Box({ checked = false, disabled = false, ...rest }) {
+export default function Box(props) {
+  const { checked = false, disabled = false, style, iconProps, ...rest } = props;
+
   return (
-    <View style={[styles.box, getBoxStyle(checked, disabled)]} {...rest}>
-      {checked && <CheckSvgIcon />}
+    <View style={[styles.box, getBoxStyle(checked, disabled), style]} {...rest}>
+      {checked && <CheckSvgIcon {...(iconProps || {})} />}
     </View>
   );
 }
