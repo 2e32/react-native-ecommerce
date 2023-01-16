@@ -141,7 +141,7 @@ const chairs = [
     summary: 'Bar stool with backrest, white, 24 3/8 "',
     description:
       'NORDVIKEN counter-height stool with a deepening in the seat and curved backrest will keep you comfortably seated for long conversations at the kitchen island. The look is easy to combine in any kitchen.',
-    image: '',
+    image: 'https://www.ikea.com/us/en/images/products/nordviken-bar-stool-with-backrest-white__0714174_pe729957_s5.jpg',
     price: 95,
     raiting: 4.4,
     reviews: 34,

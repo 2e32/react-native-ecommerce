@@ -1,15 +1,28 @@
-import { View, ScrollView, Text } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, FlatList } from 'react-native';
 
-function TabContainer({ children }) {
-  return <ScrollView>{children}</ScrollView>;
-}
+import { mocks, colors } from '../../constants';
+
+import ProductCard from './ProductCard';
+
+const keyExtractor = (item) => item.id;
+const renderItem = ({ item }) => (
+  <ProductCard title={item.name} image={item.image} price={item.price} />
+);
 
 export function Popular() {
   return (
-    <TabContainer>
-      <Text>Popular</Text>
-    </TabContainer>
+    <FlatList
+      data={mocks.products.popular}
+      keyExtractor={keyExtractor}
+      renderItem={renderItem}
+      numColumns={2}
+      style={styles.list}
+    />
   );
+}
+
+function TabContainer({ children }) {
+  return <ScrollView>{children}</ScrollView>;
 }
 
 export function Chair() {
@@ -43,3 +56,9 @@ export function Bed() {
     </TabContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  list: {
+    backgroundColor: colors.white,
+  },
+});
