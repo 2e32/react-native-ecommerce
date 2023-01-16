@@ -141,7 +141,8 @@ const chairs = [
     summary: 'Bar stool with backrest, white, 24 3/8 "',
     description:
       'NORDVIKEN counter-height stool with a deepening in the seat and curved backrest will keep you comfortably seated for long conversations at the kitchen island. The look is easy to combine in any kitchen.',
-    image: 'https://www.ikea.com/us/en/images/products/nordviken-bar-stool-with-backrest-white__0714174_pe729957_s5.jpg',
+    image:
+      'https://www.ikea.com/us/en/images/products/nordviken-bar-stool-with-backrest-white__0714174_pe729957_s5.jpg',
     price: 95,
     raiting: 4.4,
     reviews: 34,
@@ -195,7 +196,67 @@ const chairs = [
   },
 ];
 
-const armchairs = [];
+const armchairs = [
+  {
+    id: 11,
+    name: 'STRANDMON',
+    summary: 'Wing chair, Nordvalla dark grey',
+    description:
+      'Bringing new life to an old favourite. We first introduced this chair in the 1950’s. Some 60 years later we brought it back into the range with the same craftsmanship, comfort and appearance. Enjoy!',
+    image:
+      'https://www.ikea.com/gb/en/images/products/strandmon-wing-chair-nordvalla-dark-grey__0325432_pe517964_s5.jpg',
+    price: 229,
+    raiting: 4.7,
+    reviews: 196,
+  },
+  {
+    id: 12,
+    name: 'EKENÄSET',
+    summary: 'Armchair, Kilanda light beige',
+    description:
+      'EKENÄSET armchair adds a stylish retro vibe to the room that’s inspired by 1950s Scandinavian design. The classic look goes anywhere in the home – and gives you sturdy and robust seating for many years.',
+    image:
+      'https://www.ikea.com/gb/en/images/products/ekenaeset-armchair-kilanda-light-beige__1109687_pe870153_s5.jpg',
+    price: 199,
+    raiting: 4.8,
+    reviews: 24,
+  },
+  {
+    id: 13,
+    name: 'POÄNG',
+    summary: 'Armchair, oak veneer/Knisa light beige',
+    description: 'Layer-glued bent oak gives comfortable resilience.',
+    image:
+      'https://www.ikea.com/gb/en/images/products/poaeng-armchair-oak-veneer-knisa-light-beige__0571595_pe666981_s5.jpg',
+    price: 80,
+    raiting: 4.7,
+    reviews: 23,
+  },
+  {
+    id: 14,
+    name: 'NOLMYRA',
+    summary: 'Easy chair, birch veneer/grey',
+    description:
+      'NOLMYRA easy chair re-imagines comfort with mesh fabric stretched over the frame, making the need for foam unnecessary. The result is an elegantly engineered lounge chair at a low price.',
+    image:
+      'https://www.ikea.com/gb/en/images/products/nolmyra-easy-chair-birch-veneer-grey__0152020_pe310348_s5.jpg',
+    price: 50,
+    raiting: 3.4,
+    reviews: 14,
+  },
+  {
+    id: 15,
+    name: 'EKENÄSET ',
+    summary: 'Armchair, Jonsbyn black',
+    description:
+      'EKENÄSET armchair adds a stylish retro vibe to the room that’s inspired by 1950s Scandinavian design. The classic look goes anywhere in the home – and gives you sturdy and robust seating for many years.',
+    image:
+      'https://www.ikea.com/gb/en/images/products/ekenaeset-armchair-jonsbyn-black__1109680_pe870147_s5.jpg',
+    price: 250,
+    raiting: null,
+    reviews: null,
+  },
+];
 
 const tables = [];
 
