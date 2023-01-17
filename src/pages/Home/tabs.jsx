@@ -1,4 +1,4 @@
-import { StyleSheet, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 
 import { mocks, colors } from '../../constants';
 
@@ -9,68 +9,31 @@ const renderItem = ({ item }) => (
   <ProductCard title={item.name} image={item.image} price={item.price} />
 );
 
+const flatListConfig = {
+  numColumns: 2,
+  style: {
+    backgroundColor: colors.white,
+  },
+  keyExtractor,
+  renderItem,
+};
+
 export function Popular() {
-  return (
-    <FlatList
-      data={mocks.products.popular}
-      keyExtractor={keyExtractor}
-      renderItem={renderItem}
-      numColumns={2}
-      style={styles.list}
-    />
-  );
+  return <FlatList data={mocks.products.popular} {...flatListConfig} />;
 }
 
 export function Chair() {
-  return (
-    <FlatList
-      data={mocks.products.chairs}
-      keyExtractor={keyExtractor}
-      renderItem={renderItem}
-      numColumns={2}
-      style={styles.list}
-    />
-  );
+  return <FlatList data={mocks.products.chairs} {...flatListConfig} />;
 }
 
 export function Table() {
-  return (
-    <FlatList
-      data={mocks.products.tables}
-      keyExtractor={keyExtractor}
-      renderItem={renderItem}
-      numColumns={2}
-      style={styles.list}
-    />
-  );
+  return <FlatList data={mocks.products.tables} {...flatListConfig} />;
 }
 
 export function Armchair() {
-  return (
-    <FlatList
-      data={mocks.products.armchairs}
-      keyExtractor={keyExtractor}
-      renderItem={renderItem}
-      numColumns={2}
-      style={styles.list}
-    />
-  );
+  return <FlatList data={mocks.products.armchairs} {...flatListConfig} />;
 }
 
 export function Bed() {
-  return (
-    <FlatList
-      data={mocks.products.beds}
-      keyExtractor={keyExtractor}
-      renderItem={renderItem}
-      numColumns={2}
-      style={styles.list}
-    />
-  );
+  return <FlatList data={mocks.products.beds} {...flatListConfig} />;
 }
-
-const styles = StyleSheet.create({
-  list: {
-    backgroundColor: colors.white,
-  },
-});

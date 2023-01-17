@@ -13,7 +13,7 @@ export default function ProductCard({ title, image, price }) {
           style={styles.image}
         />
       ) : (
-        <View style={styles.imageStub} />
+        <View style={styles.image} />
       )}
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.price}>$ {price}</Text>
@@ -28,11 +28,6 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   image: {
-    height: 200,
-    backgroundColor: colors.sub,
-    borderRadius: 8,
-  },
-  imageStub: {
     height: 200,
     backgroundColor: colors.sub,
     borderRadius: 8,
