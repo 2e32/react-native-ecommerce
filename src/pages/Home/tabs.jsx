@@ -1,4 +1,4 @@
-import { StyleSheet, View, ScrollView, Text, FlatList } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 
 import { mocks, colors } from '../../constants';
 
@@ -19,10 +19,6 @@ export function Popular() {
       style={styles.list}
     />
   );
-}
-
-function TabContainer({ children }) {
-  return <ScrollView>{children}</ScrollView>;
 }
 
 export function Chair() {
