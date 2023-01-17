@@ -258,11 +258,63 @@ const armchairs = [
   },
 ];
 
-const tables = [];
+const tables = [
+  {
+    id: 16,
+    name: 'RÖNNINGE',
+    summary: 'Bar table, birch, 29 1/2x29 1/2 "',
+    description:
+      'A stable construction in solid wood and hardwood veneer that makes each table unique, with varying grain patterns and natural color shifts that are part of the charm of wood.',
+    image:
+      'https://www.ikea.com/us/en/images/products/roenninge-bar-table-birch__1044552_pe842223_s5.jpg',
+    price: 279,
+    raiting: 5,
+    reviews: 1,
+  },
+  {
+    id: 17,
+    name: 'TOMMARYD',
+    summary: 'Table, white, 51 1/8x27 1/2 "',
+    description:
+      'This table suits both homes and businesses demanding everyday strength and durability. Easy to place in a kitchen, dining room, café or meeting room. The clean design combines well with many styles.',
+    image:
+      'https://www.ikea.com/us/en/images/products/tommaryd-table-white-stained-oak-veneer-anthracite__0898690_pe782584_s5.jpg',
+    price: 279,
+    raiting: 5,
+    reviews: 10,
+  },
+  {
+    id: 18,
+    name: 'LAGKAPTEN / ALEX',
+    summary: 'Desk, white, 55 1/8x23 5/8 "',
+    description:
+      'Limited space doesn’t mean you have to say no to studying or working from home. This desk takes up little floor space yet still has two drawer units where you can store papers and other items.',
+    image:
+      'https://www.ikea.com/us/en/images/products/lagkapten-alex-desk-white__1022432_pe832720_s5.jpg?',
+    price: 259,
+    raiting: 4.6,
+    reviews: 95,
+  },
+];
 
-const beds = [];
+const beds = [
+  {
+    id: 19,
+    name: 'KLEPPSTAD',
+    summary: 'Bed frame, white/Vissle beige, Full/Double',
+    description:
+      'KLEPPSTAD has a stylish and modern design with a metal bed frame and a cozy textile headboard. Easy to both buy and take home since it’s sold as two compact packages. So practical and ',
+    image:
+      'https://www.ikea.com/us/en/images/products/kleppstad-bed-frame-white-vissle-beige__1035340_pe840527_s5.jpg?',
+    price: 169,
+    raiting: 4.6,
+    reviews: 36,
+  },
+];
 
-const popular = [...chairs.filter((x) => x.reviews >= 30)];
+const isPopular = (product) => product?.reviews >= 20 && product?.raiting >= 4.5;
+
+const popular = chairs.concat(armchairs).concat(tables).concat(beds).filter(isPopular);
 
 const mocks = {
   user,

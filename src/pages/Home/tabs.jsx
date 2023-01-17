@@ -39,9 +39,13 @@ export function Chair() {
 
 export function Table() {
   return (
-    <TabContainer>
-      <Text>Table</Text>
-    </TabContainer>
+    <FlatList
+      data={mocks.products.tables}
+      keyExtractor={keyExtractor}
+      renderItem={renderItem}
+      numColumns={2}
+      style={styles.list}
+    />
   );
 }
 
@@ -59,9 +63,13 @@ export function Armchair() {
 
 export function Bed() {
   return (
-    <TabContainer>
-      <Text>Bed</Text>
-    </TabContainer>
+    <FlatList
+      data={mocks.products.beds}
+      keyExtractor={keyExtractor}
+      renderItem={renderItem}
+      numColumns={2}
+      style={styles.list}
+    />
   );
 }
 
