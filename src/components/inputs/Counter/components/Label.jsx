@@ -1,18 +1,26 @@
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import { colors } from '../../../../constants';
 
-export default function Label(props) {
-  const { style, ...rest } = props;
-
-  return <Text style={[styles.label, style]} {...rest} />;
+export default function Label({ children, ...rest }) {
+  return (
+    <View style={styles.wrapper} {...rest}>
+      <Text style={styles.label}>{children}</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
+  wrapper: {
+    minWidth: 50,
+    paddingHorizontal: 8,
+  },
   label: {
-    paddingHorizontal: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     color: colors.main,
     fontSize: 18,
-    lineHeight: 25,
+    lineHeight: 24,
   },
 });
