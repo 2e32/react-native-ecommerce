@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { StyleSheet, Text, Button } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 
+import { Counter } from '../components';
 import { colors, mocks } from '../constants';
 
 export default function Product() {
@@ -9,7 +10,7 @@ export default function Product() {
   const navigation = useNavigation();
 
   const [product, setProduct] = useState(null);
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(null);
 
   useEffect(() => {
     navigation.setParams({ productId: 1 });
@@ -35,7 +36,7 @@ export default function Product() {
     <>
       <Text style={styles.header}>{product?.name}</Text>
       <Text style={styles.price}>$ {product?.price}</Text>
-      <Text>Count: {count}</Text>
+      <Counter value={count} min={0} onChange={setCount} />
 
       <Text>
         <Text style={styles.raiting}>{product?.raiting}</Text>
