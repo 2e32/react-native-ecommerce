@@ -1,96 +1,43 @@
-import { useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { Container, DecreaseButton, IncreaseButton, Label } from './components';
-
-const DEFAULT_VALUE = 0;
-const DEFAULT_STEP = 1;
-
-const isValidNumber = (num) => Number.isFinite(num);
-
-const normalizeByRange = (num, min, max) => {
-  const validNum = isValidNumber(num);
-  const validMin = isValidNumber(min);
-  const validMax = isValidNumber(max);
-
-  if (validNum) {
-    if (validMin && num < min) return min;
-    if (validMax && num > max) return max;
-
-    return num;
-  } else {
-    if (validMin) return min;
-    if (validMax) return max;
-
-    return 0;
-  }
-};
-
-const getValue = ({ value, defaultValue, min, max }) => {
-  if (isValidNumber(value)) return normalizeByRange(value, min, max);
-  else return normalizeByRange(defaultValue, min, max);
-};
+import { getValue, isValidNumber } from './utils';
 
 export default function Counter(props) {
-  const {
-    value,
-    defaultValue = DEFAULT_VALUE,
-    increaseStep = DEFAULT_STEP,
-    decreaseStep = DEFAULT_STEP,
-    min,
-    max,
-    format,
-    onChange,
-  } = props;
-  console.log('value', value, typeof value === 'number');
+  const { value, min, max, format, onChange } = props;
+
   const formattedValue = useMemo(
     () => (typeof format === 'function' ? format(value) : value),
     [value, format]
   );
 
-  const changeValue = useCallback(
-    (num) => {
-      if (typeof onChange === 'function') onChange(num);
-    },
-    [onChange]
-  );
-
-  const clearValue = useCallback(() => {
-    changeValue(null);
-  }, [changeValue]);
-
   const handleIncrease = () => {
-    const normalizedValue = getValue({ value, defaultValue, min, max });
+    const safeValue = getValue({ value, min, max });
 
-    changeValue(normalizedValue + increaseStep);
+    if (safeValue < min) onChange?.(safeValue);
+    else onChange?.(safeValue + 1);
   };
 
   const handleDecrease = () => {
-    const normalizedValue = getValue({ value, defaultValue, min, max });
+    const safeValue = getValue({ value, min, max });
 
-    changeValue(normalizedValue - decreaseStep);
+    if (safeValue > max || safeValue - 1 <= min) onChange?.(safeValue);
+    else onChange?.(safeValue - 1);
   };
 
   const increaseDisabled = useMemo(() => {
-    if (isValidNumber(max)) {
-      if (isValidNumber(value) && value >= max) return true;
-      if (isValidNumber(defaultValue) && defaultValue >= max) return true;
-
-      return false;
-    }
+    if (!isValidNumber(max)) return false;
+    if (isValidNumber(value) && value >= max) return true;
 
     return false;
-  }, [value, defaultValue, max]);
+  }, [value, max]);
 
   const decreaseDisabled = useMemo(() => {
-    if (isValidNumber(min)) {
-      if (isValidNumber(value) && value <= min) return true;
-      if (isValidNumber(defaultValue) && defaultValue <= min) return true;
-
-      return false;
-    }
+    if (!isValidNumber(min)) return false;
+    if (isValidNumber(value) && value <= min) return true;
 
     return false;
-  }, [value, defaultValue, min]);
+  }, [value, min]);
 
   return (
     <Container>
