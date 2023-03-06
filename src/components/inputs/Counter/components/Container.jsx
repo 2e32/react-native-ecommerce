@@ -8,9 +8,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: 'red',
+    paddingVertical: 4,
   },
 });
