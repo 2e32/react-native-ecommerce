@@ -13,10 +13,6 @@ export default function Product() {
   const [count, setCount] = useState(null);
 
   useEffect(() => {
-    navigation.setParams({ productId: 1 });
-  }, []);
-
-  useEffect(() => {
     if (route.params?.productId) {
       const foundProduct = mocks.products.chairs.find((x) => x.id === route.params.productId);
 
