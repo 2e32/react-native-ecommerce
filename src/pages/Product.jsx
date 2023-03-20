@@ -33,32 +33,33 @@ export default function Product() {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <Image source={{ uri: product?.image }} alt="" style={styles.image} />
-      <Text style={styles.header}>{product?.name}</Text>
+      <View style={styles.container}>
+        <Text style={styles.header}>{product?.name}</Text>
 
-      <View style={styles.panel}>
-        <Text style={styles.price}>$ {product?.price}</Text>
-        <Counter value={count} min={0} onChange={setCount} />
+        <View style={styles.pricePanel}>
+          <Text style={styles.price}>$ {product?.price}</Text>
+          <Counter value={count} min={0} onChange={setCount} />
+        </View>
+
+        <View style={styles.raitingPanel}>
+          <Text style={styles.raiting}>{product?.raiting}</Text>
+          <Text style={styles.reviews}>({product?.reviews} reviews)</Text>
+        </View>
+
+        <Text style={styles.description}>{product?.description}</Text>
       </View>
-
-      <View style={styles.panel2}>
-        <Text style={styles.raiting}>{product?.raiting}</Text>
-        <Text style={styles.reviews}>({product?.reviews} reviews)</Text>
+      <View style={styles.container}>
+        <Button title="Add to favorite" onPress={handleAddToFavorite} />
+        <Button title="Add to cart" onPress={handleAddToCart} />
+        <Button title="<" onPress={handleGoBack} />
       </View>
-
-      <Text style={styles.description}>{product?.description}</Text>
-      <Button title="Add to favorite" onPress={handleAddToFavorite} />
-      <Button title="Add to cart" onPress={handleAddToCart} />
-      <Button title="<" onPress={handleGoBack} />
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-  },
   image: {
     width: '90%',
     height: Dimensions.get('window').height / 2,
@@ -66,16 +67,19 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     borderBottomLeftRadius: 50,
   },
+  container: {
+    padding: 16,
+  },
   header: {
     marginVertical: 16,
     fontSize: 24,
     fontWeight: '600',
   },
-  panel: {
+  pricePanel: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  panel2: {
+  raitingPanel: {
     flexDirection: 'row',
     alignItems: 'center',
   },
