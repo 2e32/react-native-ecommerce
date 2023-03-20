@@ -1,10 +1,10 @@
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Pressable, Text, Image } from 'react-native';
 
 import { colors } from '../../constants';
 
-export default function ProductCard({ title, image, price }) {
+export default function ProductCard({ title, image, price, ...rest }) {
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} {...rest}>
       {image ? (
         <Image
           source={{ uri: `${image}?f=xxxs` }}
@@ -17,7 +17,7 @@ export default function ProductCard({ title, image, price }) {
       )}
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.price}>$ {price}</Text>
-    </View>
+    </Pressable>
   );
 }
 
