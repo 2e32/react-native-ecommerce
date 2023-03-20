@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, Dimensions, View, ScrollView, Text, Button, Image } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 
 import { Counter } from '../components';
@@ -33,7 +33,8 @@ export default function Product() {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
+      <Image source={{ uri: product?.image }} alt="" style={styles.image} />
       <Text style={styles.header}>{product?.name}</Text>
 
       <View style={styles.panel}>
@@ -49,10 +50,8 @@ export default function Product() {
       <Text style={styles.description}>{product?.description}</Text>
       <Button title="Add to favorite" onPress={handleAddToFavorite} />
       <Button title="Add to cart" onPress={handleAddToCart} />
-
-      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Button title="<" onPress={handleGoBack} />
-    </View>
+    </ScrollView>
   );
 }
 
@@ -60,7 +59,15 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
   },
+  image: {
+    width: '90%',
+    height: Dimensions.get('window').height / 2,
+    marginLeft: 'auto',
+    resizeMode: 'contain',
+    borderBottomLeftRadius: 50,
+  },
   header: {
+    marginVertical: 16,
     fontSize: 24,
     fontWeight: '600',
   },
